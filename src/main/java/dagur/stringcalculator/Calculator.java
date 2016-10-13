@@ -5,7 +5,7 @@ public class Calculator {
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
-		}else if(text.contains(",")){
+		}else if(text.contains(",") || text.contains("\n")){
 			return findSum(splitter(text));
 		}else
 			return convertToInt(text);
@@ -19,7 +19,8 @@ public class Calculator {
 	}
 
 	private static String[] splitter(String numbers){
-	    return numbers.split(",");
+		 return numbers.split("\\W+");
+	   
 	}
       
     private static int findSum(String[] numbers){
