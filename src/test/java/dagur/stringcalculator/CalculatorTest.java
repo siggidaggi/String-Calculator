@@ -34,4 +34,9 @@ public class CalculatorTest {
     public void testNewlineBetweenNumbers() {
     	assertEquals(6, Calculator.add("1\n2,3"));
    	}
+
+  /* 	@Test
+   	public void testNegativeNumber() {
+   		assertEquals("Negatives not allowed: -" + 1, Calculator.add("-1,5"));
+   	}*/
 }

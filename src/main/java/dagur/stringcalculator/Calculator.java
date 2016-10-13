@@ -19,16 +19,19 @@ public class Calculator {
 	}
 
 	private static String[] splitter(String numbers){
-		 return numbers.split("\\W+");
+		numbers = numbers.replaceAll("[\\\n]", ",");
+		return numbers.split(",");
 	   
 	}
       
     private static int findSum(String[] numbers){
  	    int sum = 0;
         for(String number : numbers){
-		    sum += convertToInt(number);
+        	int temp = convertToInt(number);
+		    sum = sum + temp;
 		}
 		return sum;
+		  
     }
 
 
