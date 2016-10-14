@@ -2,7 +2,6 @@ package dagur.stringcalculator;
 
 import java.util.*;
 
-
 public class Calculator {
 
 	public static int add(String text){
@@ -15,10 +14,8 @@ public class Calculator {
 			return findSum(splitter(text));
 		}else
 			return convertToInt(text);
-			
-
-		
 	}
+
 
 	private static int convertToInt(String text) {
 		int result;
@@ -51,10 +48,8 @@ public class Calculator {
 
     private static String findNegatives(String numbers){
     	String[] nums = splitter(numbers);
-
     	String negs = "";
     	String comma = ", ";
-
     	for(String number : nums){
         	if(number.contains("-")){
         		negs = negs + number + comma;
@@ -65,5 +60,4 @@ public class Calculator {
 		}		
 		return negs;
     }
-  
 }

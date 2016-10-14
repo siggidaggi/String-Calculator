@@ -51,6 +51,6 @@ public class CalculatorTest {
 
    	@Test
    	public void testDifferentDelimeter() {
-   		assertEquals(3, Calculator.add("//;\n1;2"));
+   		assertEquals(13, Calculator.add("//;\n1;2;10"));
    	}
 }
