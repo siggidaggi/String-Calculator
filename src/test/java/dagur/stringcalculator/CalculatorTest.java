@@ -43,4 +43,10 @@ public class CalculatorTest {
    		assertEquals("Negatives not allowed: -5, -1", ex.getMessage());
    		}
    	}
+
+   	@Test
+   	public void testNumbersOver1k() {
+   		assertEquals(1111, Calculator.add("11,100,1500,1000"));
+   	}
+
 }
