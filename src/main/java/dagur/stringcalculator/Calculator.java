@@ -1,14 +1,21 @@
 package dagur.stringcalculator;
 
+import java.util.*;
+
+
 public class Calculator {
 
 	public static int add(String text){
 		if(text.equals("")){
 			return 0;
+		}else if(text.contains("-")){
+			String negatives = findNegatives(text);
+			throw new IllegalArgumentException("Negatives not allowed: " + negatives);
 		}else if(text.contains(",") || text.contains("\n")){
 			return findSum(splitter(text));
 		}else
 			return convertToInt(text);
+		
 		
 	}
 
@@ -31,8 +38,28 @@ public class Calculator {
 		    sum = sum + temp;
 		}
 		return sum;
-		  
     }
 
+    private static String findNegatives(String numbers){
+    	String[] nums = splitter(numbers);
+
+    	String negs = "";
+    	String comma = ", ";
+
+    	for(String number : nums){
+        	if(number.contains("-")){
+        		negs = negs + number + comma;
+        	}
+		}
+
+
+		if(negs.endsWith(", ")){
+			negs = negs.substring(0, negs.length() - 2);
+		}
+		
+		return negs;
+
+    }
+  
 
 }
