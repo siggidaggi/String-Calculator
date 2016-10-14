@@ -15,7 +15,8 @@ public class Calculator {
 			return findSum(splitter(text));
 		}else
 			return convertToInt(text);
-		
+			
+
 		
 	}
 
@@ -26,9 +27,13 @@ public class Calculator {
 	}
 
 	private static String[] splitter(String numbers){
-		numbers = numbers.replaceAll("[\\\n]", ",");
-		return numbers.split(",");
-	   
+		String delimeter = ",|\n";
+		if(numbers.startsWith("//")){
+			String[] parts = numbers.split("\n", 2);
+    		delimeter = parts[0].substring(2);
+    		numbers = parts[1];
+		}
+		return numbers.split(delimeter); 
 	}
       
     private static int findSum(String[] numbers){
@@ -55,15 +60,10 @@ public class Calculator {
         		negs = negs + number + comma;
         	}
 		}
-
-
 		if(negs.endsWith(", ")){
 			negs = negs.substring(0, negs.length() - 2);
-		}
-		
+		}		
 		return negs;
-
     }
   
-
 }
